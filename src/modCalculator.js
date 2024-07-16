@@ -23,6 +23,7 @@ function modularCalculator(op, num1, num2, mod) {
     }
 
     return result;
+    
 }
 
 modularCalculator('+', 10, 15, 12); // Should return: 1
