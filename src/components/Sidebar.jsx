@@ -5,6 +5,8 @@ import { logo, sun } from '../assets';
 import { navLinks } from '../constants';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const [isActive, setIsActive] = useState('dashboard');
   return (
     <div>Sidebar</div>
   )
