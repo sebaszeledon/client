@@ -48,5 +48,3 @@ const Sidebar = () => {
 }
 
 export default Sidebar
-
-// 1:03:53
