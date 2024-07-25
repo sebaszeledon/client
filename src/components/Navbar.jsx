@@ -33,6 +33,12 @@ const Navbar = () => {
             else "connect()"
           }}
         />
+
+        <Link to="/profile">
+          <div>
+            <img src={thirdweb}/>
+          </div>
+        </Link>
       </div>
     </div>
   )
