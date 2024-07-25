@@ -36,7 +36,7 @@ const Navbar = () => {
 
         <Link to="/profile">
           <div>
-            <img src={thirdweb}/>
+            <img src={thirdweb} />
           </div>
         </Link>
       </div>
