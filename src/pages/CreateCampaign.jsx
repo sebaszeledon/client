@@ -8,7 +8,18 @@ import { checkIfImage } from '../utils';
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [form, setForm] = useState({
+    name: '',
+    tittle: '',
+    description: '',
+    target: '',
+    deadline: '',
+    image: ''
+  });
+
   
+
   return (
     <div>CreateCampaign</div>
   );
