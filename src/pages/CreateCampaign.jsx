@@ -56,5 +56,3 @@ const CreateCampaign = () => {
 }
 
 export default CreateCampaign
-
-//1:35:10
