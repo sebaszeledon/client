@@ -18,6 +18,10 @@ const CreateCampaign = () => {
     image: ''
   });
 
+  const handleFormFieldChange = (fieldName, e) => {
+    setForm({ ...form, [fieldName]: e.target.value })
+  }
+
   const handleSubmit = () => {
 
   }
