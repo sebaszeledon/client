@@ -14,14 +14,35 @@ export const StateContextProvider = ({ children }) => {
     const connect = useMetamask();
 
     const publishCampaign = async (form) => {
+      try {
         const data = await createCampaign([
-            address, //owner
-            form.title, 
-            form.description,
-            form.target,
-            new Date(form.deadline).getTime(),
-            form.image
-        ])
+          address, //owner
+          form.title,
+          form.description,
+          form.target,
+          new Date(form.deadline).getTime(),
+          form.image,
+        ]);
+        
+        console.log("Contract call success", data);
+      } catch (error) {
+        console.log("Contract call failure", error);
+      }
     }
 
+    return (
+      <StateContext.Provider
+        value={{
+          address,
+          contract,
+          createCampaign: publishCampaign,
+        }}
+      >
+        {children}
+      </StateContext.Provider>
+    );
 }
+
+export const useStateContext = () => useContext(StateContext);
+
+// 2:07:42
