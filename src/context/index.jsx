@@ -12,17 +12,22 @@ export const StateContextProvider = ({ children }) => {
 
     const address = useAddress();
     const connect = useMetamask();
+    if (address == "undefined") {
+      connect();
+    }
 
     const publishCampaign = async (form) => {
       try {
-        const data = await createCampaign([
-          address, //owner
-          form.title,
-          form.description,
-          form.target,
-          new Date(form.deadline).getTime(),
-          form.image,
-        ]);
+        const data = await createCampaign({
+          args: [
+            address, //owner
+            form.title,
+            form.description,
+            form.target,
+            new Date(form.deadline).getTime(),
+            form.image,
+          ],
+        });
         
         console.log("Contract call success", data);
       } catch (error) {
