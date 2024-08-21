@@ -11,7 +11,7 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <ThirdwebProvider activeChain={Sepolia} clientId='c72bac59e9f98b54e671576ba367777d'>
+  <ThirdwebProvider activeChain={Sepolia} clientId={import.meta.env.VITE_THIRDWEB_CLIENT_ID}>
     <Router>
       <StateContextProvider>
         <App />
