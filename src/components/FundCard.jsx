@@ -22,4 +22,4 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
 
 export default FundCard;
 
-//2:31:54
+//2:31:55
