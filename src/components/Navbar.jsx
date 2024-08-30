@@ -9,11 +9,8 @@ import { navlinks } from '../constants';
 const Navbar = () => {
 
   const navigate = useNavigate();
-  const [isActive, setIsActive] = useState('dashboard');
+  const { address, connect, isActive, setIsActive } = useStateContext();
   const [toggleDrawer, setToggleDrawer] = useState(false);
-  const { connect, address } = useStateContext();
-
-  //const address = '0xabcdefgh';
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
@@ -39,13 +36,19 @@ const Navbar = () => {
           title={address ? "Create a campaign" : "Connect"}
           styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
           handleClick={() => {
+            setIsActive('campaign');
             if (address) navigate("create-campaign");
             else connect();
           }}
         />
 
         <Link to="/profile">
-          <div className="w-[60px] h-[60px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer">
+          <div className="w-[60px] h-[60px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer"
+            onClick={() => {
+              setIsActive('profile');
+              navigate('/profile');
+            }}
+          >
             <img
               src={thirdweb}
               alt="user"

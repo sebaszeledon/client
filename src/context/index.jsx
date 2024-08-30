@@ -1,4 +1,4 @@
-import React, { useContext, createContext, Children } from 'react';
+import React, { useContext, createContext, useState } from 'react';
 
 import { useAddress, useContract, useMetamask, useContractWrite } from '@thirdweb-dev/react';
 import { ethers } from 'ethers';
@@ -12,9 +12,12 @@ export const StateContextProvider = ({ children }) => {
 
     const address = useAddress();
     const connect = useMetamask();
+
     if (address == "undefined") {
       connect();
     }
+
+    const [isActive, setIsActive] = useState('dashboard');
 
     const publishCampaign = async (form) => {
       try {
@@ -69,6 +72,8 @@ export const StateContextProvider = ({ children }) => {
           createCampaign: publishCampaign,
           getCampaigns,
           getUserCampaigns,
+          isActive,
+          setIsActive,
         }}
       >
         {children}
