@@ -14,5 +14,4 @@ const CampaignDetails = () => {
 }
 
 export default CampaignDetails
-
-//2:45:21
+//2:45:22
