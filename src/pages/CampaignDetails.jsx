@@ -8,14 +8,13 @@ import { thirdweb } from '../assets';
 
 
 const CampaignDetails = () => {
+  const { state } = useLocation();
+  console.log(state);
   return (
     <div>CampaignDetails</div>
   )
 }
 
 export default CampaignDetails
-
-
-
 
 //2:45:22
