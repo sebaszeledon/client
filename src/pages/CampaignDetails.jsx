@@ -31,7 +31,7 @@ const CampaignDetails = () => {
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   )
@@ -39,4 +39,4 @@ const CampaignDetails = () => {
 
 export default CampaignDetails
 
-//2:45:22
+//2:50:40
