@@ -63,15 +63,39 @@ export const StateContextProvider = ({ children }) => {
       return filteredCampaigns;
     }
 
+    const donate = async (pId, amount) => {
+      const data = await contract.call('donateToCampaign', pId, address, amount)
+
+      return data;
+    }
+
+    const getDonations = async (pId) => {
+      const donations = await contract.all('getDonators', pId);
+      const numberOfDonations = donations[0].lenght;
+
+      const parsedDonations = [];
+
+      for( let i = 0; i < numberOfDonations; i++ ) {
+        parsedDonations.push({
+          donator: donations[0][i],
+          donation: ethers.utils.formatEther(donations[1][i].toString)
+        })
+      }
+
+      return parsedDonations;
+    }
+
     return (
       <StateContext.Provider
         value={{
           address,
           contract,
           connect,
+          donate,
           createCampaign: publishCampaign,
           getCampaigns,
           getUserCampaigns,
+          getDonations,
           isActive,
           setIsActive,
         }}
