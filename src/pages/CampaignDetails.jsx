@@ -34,7 +34,7 @@ const CampaignDetails = () => {
           <img
             src={state.image}
             alt="campaign"
-            className="w-full h-[310px] object-cover rounded-xl"
+            className="w-full h-[375px] object-cover rounded-xl"
           ></img>
           <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2 rounded-xl">
             <div
