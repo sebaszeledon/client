@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 import { useStateContext } from "../context";
 import { CountBox, CustomButton } from "../components";
 import { calculateBarPercentage, daysLeft } from "../utils";
-import { thirdweb } from "../assets";
+import { thirdweb, loader } from "../assets";
 
 const CampaignDetails = () => {
   const { state } = useLocation();
@@ -18,7 +18,7 @@ const CampaignDetails = () => {
 
   const fetchDonators = async () => {
     const data = await getDonations(state.pId);
-
+    console.log(data);
     setDonators(data);
   }
 
@@ -95,7 +95,7 @@ const CampaignDetails = () => {
             <h4 className='font-epilogue font-semibold text-[18px] text-white uppercase'>Donators</h4>
               <div className="mt-[20px] flex flex-col gap-4">
                 {donators.length > 0 ? donators.map((item, index) => (
-                  <div>DONATOR</div>
+                  <div key={index}>DONATOR</div>
                 )) : (
                   <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify">
                     No donators yet. Be the first one!
@@ -146,4 +146,4 @@ const CampaignDetails = () => {
 
 export default CampaignDetails;
 
-//3:14:01
+//3:20:24
